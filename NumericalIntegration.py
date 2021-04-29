@@ -1,7 +1,7 @@
 from scipy.integrate import quad
 import numpy as np
 import matplotlib as mpl
-mpl.rcParams['figure.dpi'] = 1000
+#mpl.rcParams['figure.dpi'] = 1000
 from matplotlib import pyplot as plt
 
 k = 50
@@ -36,7 +36,7 @@ for i in range(n):
     if ( abs(x[i] - R/2) < err ):
         kR2 = i
         err = abs(x[kR2] - R/2)
-        
+
 #Finding the index in the x-coordinate array corresponding to 0 (incase it isn't k should I change the domain)
 k0 = k
 err = 100
@@ -44,7 +44,7 @@ for i in range(n):
     if ( abs(x[i] ) < err ):
         k0 = i
         err = abs(x[k0])
-        
+
 for i in range(n):
     print('i =', i)
     for j in range(n):
@@ -78,6 +78,8 @@ ax1.grid()
 ax2.set(xlabel='z - coordinate', ylabel='B_x(R/2,0,z)', title='PHYS 3P36 - Assignment 2 - Question 2c)')
 ax2.grid()
 
+plt.show()
+
 print('Done')
 
 
@@ -106,7 +108,7 @@ for i in range(n):
     B_X[i][:] = B_X[i][:] / N
     B_Z[i][:] = B_Z[i][:] / N
 
-        
+
 print(B_X)
 
 ax.quiver(X, Z, B_X, B_Z, units='xy')
